@@ -119,7 +119,9 @@ plt.annotate('Peak',xy = (7.01,0.95104),
              ha = 'right',
              arrowprops = {'arrowstyle': '-|>','lw': 2},
              fontweight = 'bold')
-# plt.show()
+plt.xlabel('n_neighbors')
+plt.ylabel('Model Score')
+plt.savefig('Effect of n_neighbors on model accuracy.png')
 
 knn = KNeighborsClassifier(n_neighbors = 7)
 
