@@ -48,10 +48,10 @@ my_library['class'] = predicted_classes
 
 labels = [f'Class {i}' for i in my_library['class'].unique()]
 
-'''plt.pie(my_library['class'].value_counts(),labels = labels,explode = [0.03,0.03,0.05],
+plt.pie(my_library['class'].value_counts(),labels = labels,explode = [0.03,0.03,0.05],
         colors = sns.color_palette('dark'),autopct = '%.0f%%')
 plt.title('Class Distribution',fontweight = 'bold',fontsize = 12)
-# plt.savefig('Class Distribution.png')
+plt.savefig('Class Distribution.png')
 
 # mean features for each class
 class_feature_mean = my_library.pivot_table(index = 'class',values = features.columns,aggfunc = 'mean')
@@ -60,7 +60,7 @@ plt.legend(loc = 1)
 plt.xticks(ticks = np.arange(4),labels = class_feature_mean.columns,fontsize = 10,rotation = 0)
 plt.xlabel('Features',fontweight = 'bold',fontsize = 12)
 plt.ylabel('Mean',fontweight = 'bold',fontsize = 12)
-# plt.savefig('Mean Features for Each Class')
+plt.savefig('Mean Features for Each Class')
 
 # Boxpots for each class
 fig,ax = plt.subplots(nrows = 1,ncols = 3,figsize = (10,5),sharey = 'all')
@@ -72,7 +72,7 @@ for group,stuff in my_library.groupby('class'):
                        fontsize = 10,rotation = 33)
     ax[col].set_ylim([0,1])
     col += 1
-# plt.savefig('Boxplots')'''
+plt.savefig('Boxplots')
 
 # Creating new dataframe from playlists obtained from kaggle**
 files = glob(r'C:\Users\Te.TE\Documents\Serpent\Data\CSV\Spotify\Kaggle\*.csv')
@@ -112,13 +112,13 @@ train_scores,test_scores = validation_curve(estimator = KNeighborsClassifier(),X
                                             param_name = 'n_neighbors',
                                             param_range = param,cv = 5,scoring = "accuracy")
 
-'''plt.plot(param,np.mean(test_scores,axis = 1),label = "Test score",color = "blue")
+plt.plot(param,np.mean(test_scores,axis = 1),label = "Test score",color = "blue")
 plt.annotate('Peak',xy = (7.01,0.95104),
              xytext = (6.5,0.95),
              va = 'center',
              ha = 'right',
              arrowprops = {'arrowstyle': '-|>','lw': 2},
-             fontweight = 'bold')'''
+             fontweight = 'bold')
 # plt.show()
 
 knn = KNeighborsClassifier(n_neighbors = 7)
@@ -126,8 +126,8 @@ knn = KNeighborsClassifier(n_neighbors = 7)
 Q1,Q2,A1,A2 = train_test_split(model_features,model_target,random_state = 1,stratify = my_library['class'],
                                train_size = 0.65)
 knn.fit(Q1,A1)
-'''con = ConfusionMatrixDisplay(confusion_matrix = confusion_matrix(A2,knn.predict(Q2)),display_labels = knn.classes_)
-con.plot(cmap='Blues')'''
+con = ConfusionMatrixDisplay(confusion_matrix = confusion_matrix(A2,knn.predict(Q2)),display_labels = knn.classes_)
+con.plot(cmap='Blues')
 # plt.show()
 
 # predict using kaggle_transform
@@ -201,3 +201,4 @@ def find_from_my_library(song_name_,artist):
         raise KeyError(f'{artist.title()} is not in your library')
 
     print(final.loc[f'{song_name_.title()}: {artist.title()}'])
+    
