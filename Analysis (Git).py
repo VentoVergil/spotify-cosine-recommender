@@ -73,6 +73,9 @@ print(np.mean(analysis[['valence','energy','danceability']].mean()))  # 0.6
 
 # See feature correlation
 sns.heatmap(analysis.corr(),annot = True,cmap = 'Blues')
+plt.subplots_adjust(left = 0.217,bottom = 0.19,right = 0.836,top = 0.917)
+plt.xticks(rotation = 55)
+plt.savefig('Audio Feature Correlation.png')
 # plt.show()
 
 # what is the most negative song in the dataset
