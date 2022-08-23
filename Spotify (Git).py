@@ -135,7 +135,6 @@ plt.title('Total Stream Hours VS Total Caraveo Stream Hours',fontsize=12)
 plt.savefig('Total Stream Hours VS Total Caraveo Stream Hours.png')
 
 
-# Readme
 # We find that Ryan Caraveo is the users top artists.
 # A further analysis will be performed on the dataframe
-# get audio features of tracks in library, classify them (KMeans)
+# We will get audio features of all tracks in library and classify them
