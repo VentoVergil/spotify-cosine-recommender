@@ -124,7 +124,7 @@ print(x[x['speechiness'] == x['speechiness'].max()])
 print(x[x['liveness'] == x['liveness'].max()])
 print(x[x['instrumentalness'] == x['instrumentalness'].max()])
 
-# From the previous *** we found that Ryan Caraveo was the users top artist. We analyze features of his track
+# From our preliminary analysis we found that Ryan Caraveo was the users top artist. We analyze features of his track
 
 caraveo = analysis[analysis['artist'] == 'Ryan Caraveo']
 
