@@ -1,1 +1,1 @@
-# spotify-cosine-recommender
+# Spotify Song Recommender with Cosine Similarity
